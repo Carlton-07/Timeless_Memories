@@ -68,3 +68,26 @@ footer{
 hr{
   margin-bottom: 2%;
 }
+
+.buttons{
+  margin-top: 10%;
+  height: 40px;
+  display: flex;
+  gap: 10px;
+}
+
+.buttons button{
+  width: 100%;
+  background-color: #e4d5b7;
+  color: black;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+
+.buttons button:hover{
+  background-color: #ccbea2;
+}
+
+h1{
+  font-family: 'Satisfy', cursive;
+}
