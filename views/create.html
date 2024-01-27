@@ -3,9 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Photos</title>
+    <link rel="stylesheet" href="css/create.css">
 </head>
 <body>
+    <div class="buttons">
+<span class="retro">Upload Your Memories</span>
     
+    <label for="imageInput" class="custom-file-upload" ><button class="raise">Choose an image</button></label>
+    <input type="file" id="imageInput" multiple>
+    <div class="image-container" id="imageContainer"></div>
+</div>
+<div class="fullscreen-overlay" id="fullscreenOverlay"></div>
+    <script>
+        document.querySelector('.custom-file-upload').addEventListener('click', function() {
+    document.getElementById('imageInput').click();
+});
+
+document.getElementById('imageInput').addEventListener('change', function(event) {
+    const files = event.target.files;
+    const imageContainer = document.getElementById('imageContainer');
+
+    for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            imageContainer.appendChild(img);
+
+            
+            img.addEventListener('click', function() {
+                const enlargedImg = document.createElement('img');
+                enlargedImg.src = this.src;
+                enlargedImg.classList.add('enlarged-image');
+
+                const overlay = document.getElementById('fullscreenOverlay');
+                overlay.innerHTML = ''; 
+                overlay.appendChild(enlargedImg);
+                overlay.style.display = 'flex';
+            });
+        };
+
+        reader.readAsDataURL(file);
+    }
+});
+
+const overlay = document.getElementById('fullscreenOverlay');
+overlay.addEventListener('click', function() {
+    this.style.display = 'none'; 
+});
+
+    </script>
 </body>
 </html>
