@@ -1,12 +1,13 @@
+import 'dotenv/config';
 import express from "express";
 import bodyParser from "body-parser";
 import path from "path";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
+import { MongoClient, ServerApiVersion } from "mongodb";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://tmmem:UofTHacks11@tmmem.xc9ioh7.mongodb.net/?retryWrites=true&w=majority";
+const uri = process.env.URI;
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
@@ -24,9 +25,10 @@ async function run() {
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
   } catch(error){
-    console.error(error);
+    console.log(error);
   }
 }
+
 run().catch(console.dir);
 
 const app = express();
