@@ -1,0 +1,70 @@
+@import url(https://fonts.googleapis.com/css?family=Satisfy); 
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(to bottom, #e4d5b7, #5C4033);
+  background: linear-gradient(to right, #e4d5b7, #5C4033 );
+}
+
+#header-home {
+ position: relative;
+ background: linear-gradient(to bottom, #e4d5b7, #5C4033 ,30%);
+  background: linear-gradient(to right, #e4d5b7, #5C4033 );
+}
+
+.icon {
+  position: relative;
+  top: 63px;
+  right: 25px;
+}
+
+.retro {
+  color: rgba(250, 242, 242, 0.932);
+  display: block;
+  font-family: 'Satisfy', cursive;
+  font-size: 40px;
+  text-shadow: 3px 3px black;
+  transform: rotate(-10deg);
+}
+
+.brand {
+  position: absolute;
+  top: 10px;  
+  right: 10px; 
+  font-family: 'FontAwesome', 'Dosis', sans-serif; 
+  font-size: 24px; 
+  color: #fff; 
+}
+
+
+.header-inner {
+  display: flex;
+  align-items: center; 
+}
+
+.header-text {
+  margin-left: 20px; 
+}
+
+.home_img {
+  width: 75%;
+  height: 100%;
+}
+
+footer{
+  text-align: center;
+  font-size: larger;
+  margin-bottom: 2%;
+}
+
+hr{
+  margin-bottom: 2%;
+}
