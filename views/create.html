@@ -8,10 +8,12 @@
 </head>
 <body>
     <div class="buttons">
-<span class="retro">Upload Your Memories</span>
+    <span class="retro">Upload Your Memories</span>
     
-    <label for="imageInput" class="custom-file-upload" ><button class="raise">Choose an image</button></label>
-    <input type="file" id="imageInput" multiple>
+    <form action="/create" method="post">
+        <label for="imageInput" class="custom-file-upload" ><button class="raise">Choose an image</button></label>
+        <input type="file" id="imageInput" multiple>
+    </form>
     <div class="image-container" id="imageContainer"></div>
 </div>
 <div class="fullscreen-overlay" id="fullscreenOverlay"></div>
@@ -53,6 +55,22 @@ document.getElementById('imageInput').addEventListener('change', function(event)
 const overlay = document.getElementById('fullscreenOverlay');
 overlay.addEventListener('click', function() {
     this.style.display = 'none'; 
+});
+
+img.addEventListener('click', function() {
+    
+    this.classList.add('flip');
+
+    setTimeout(() => {
+        const enlargedImg = document.createElement('img');
+        enlargedImg.src = this.src;
+        enlargedImg.classList.add('enlarged-image');
+
+        const overlay = document.getElementById('fullscreenOverlay');
+        overlay.innerHTML = ''; 
+        overlay.appendChild(enlargedImg);
+        overlay.style.display = 'flex';
+    }, 600); 
 });
 
     </script>
