@@ -36,6 +36,10 @@ const port = 3000;
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.get("/create", (req,res) => {
+    res.sendFile(__dirname + "/views/create.html");
+});
+
 app.get("/", (req,res) => {
     res.sendFile(__dirname + "/views/index.html");
 });
